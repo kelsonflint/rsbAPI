@@ -1,0 +1,14 @@
+[
+	{
+		"id": "1",
+		"orgName": "Washington Small Business Development Center",
+		"description": "The Washington Small Business Development Center (SBDC) is a network of more than 30 expert business advisors working in communities across the state to help entrepreneurs or small business owners start, grow or buy/sell a business. SBDC advisors provide one-on-one, confidential, no-cost advising on all phases of small business development and are often co-located with economic development specialists in community colleges, economic development agencies or government agencies.",
+		"website": "www.wsbdc.org",
+		"phone": "(833) 492-7232",
+		"email": "washington@wsbdc.org",
+		"pocName": "Duane Fladland",
+		"languages": ["Spanish", "Mandarin", "French", "Swahili", "Laotian", "Thai"],
+		"demographics": ["Black, Latnix"],
+		"locations": ["State-wide"]
+	}
+]

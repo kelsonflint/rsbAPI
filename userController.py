@@ -45,10 +45,12 @@ class UserController:
                 Key={
                     'id': id,
                 },
-                UpdateExpression="set email=:e, password=:p",
+                UpdateExpression="set email=:e, password=:p, firstName=:fn, lastName=:ln",
                 ExpressionAttributeValues={
                     ':e': user['email'],
-                    ':p': user['password']
+                    ':p': user['password'],
+                    ':fn': user['firstName'],
+                    ':ln': user['lastName']
                 },
                 ReturnValues="UPDATED_NEW"
             )

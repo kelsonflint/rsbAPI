@@ -3,8 +3,12 @@ class User:
         self,
         id: str,
         email: str,
-        password: str
+        password: str,
+        firstName: str,
+        lastName: str
     ):
-        self._id = id
-        self._email = email
-        self._password = password
+        self.id = id
+        self.email = email
+        self.password = password
+        self.firstName = firstName
+        self.lastName = lastName

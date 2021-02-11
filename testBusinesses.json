@@ -1,0 +1,25 @@
+[
+	{
+		"id": "1",
+		"userId": "1",
+		"businessName": "Veganzzz",
+		"address": "123 University Way NE, Seattle, WA 98105",
+		"naics": 72,
+		"numEmployees": 3,
+		"timeInBusiness": "3+ years",
+		"annualRevenue": "250,000-500,000",
+		"languagePref": "spanish",
+		"ownerDemographics": ["latinx, women"],
+		"reasonsForFunding": ["working capital", "Rent/Mortgage"],
+		"amountRequested": 100000,
+		"fundingTimeline": "today",
+		"poc": {
+			"firstName": "Jane",
+			"lastName": "Doe",
+			"phone": "1234567890",
+			"email": "jane@veganzzz.com",
+			"prefMethod": "email"
+		}
+
+	}
+]
