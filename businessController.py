@@ -3,7 +3,7 @@ import time
 from pprint import pprint
 from uuid import uuid4
 from botocore.exceptions import ClientError
-from models import business
+from boto3.dynamodb.conditions import Key, Attr
 
 class BusinessController:
 
@@ -23,10 +23,11 @@ class BusinessController:
             print('created new business', business['businessName'])
             return response
 
-    def get(self, id):
+    def get(self, userId, id):
         try:
             response = self.table.get_item(
                 Key={
+                    'userId': userId,
                     'id': id
                 }
             )
@@ -35,11 +36,23 @@ class BusinessController:
         else:
             return response['Item']
 
-    def update(self, id, business):
+    def get_user_businesses(self, userId):
+        try:
+            response = self.table.query(
+                KeyConditionExpression=Key('userId').eq(userId)
+            )
+            print(response['Items'])
+        except ClientError as e:
+            print(e.response['Error']['Message'])
+        else:
+            return response['Items']
+
+    def update(self, userId, id, business):
         try:
             response = self.table.update_item(
                 Key={
                     'id': id,
+                    'userId': userId
                 },
                 UpdateExpression="set businessName=:n, address=:a, naics=:naics, numEmployees=:ne, timeInBusiness=:tib, annualRevenue=:ar, languagePref=:l, ownerDemographics=:od, reasonsForFunding=:rff, amountRequested=:amr, fundingTimeline=:ft, poc=:poc",
                 ExpressionAttributeValues={
@@ -63,10 +76,11 @@ class BusinessController:
             print("updated business w/ id", id)
             return response
     
-    def delete(self, id):
+    def delete(self, userId, id):
         try:
             response = self.table.delete_item(
                 Key={
+                    'userId': userId,
                     'id': id
                 },
             )
@@ -77,18 +91,19 @@ class BusinessController:
             return response
 
 if __name__ == '__main__':
-    controller = BusinessController()
-    biz = controller.get("1")
-    if biz:
-        print('get biz succeeded')
-        pprint(biz, sort_dicts=False)
-    else:
-        print('get failed')
-    biz['businessName'] = 'memes'
-    controller.update("1", biz)
-    changed = controller.get("1")
-    print(changed['businessName'])
-    controller.delete("1")
-    controller.create(biz)
-    controller.get("1")
-    controller.delete("1")
+    print('main')
+    # controller = BusinessController()
+    # biz = controller.get("1")
+    # if biz:
+    #     print('get biz succeeded')
+    #     pprint(biz, sort_dicts=False)
+    # else:
+    #     print('get failed')
+    # biz['businessName'] = 'memes'
+    # controller.update("1", biz)
+    # changed = controller.get("1")
+    # print(changed['businessName'])
+    # controller.delete("1")
+    # controller.create(biz)
+    # controller.get("1")
+    # controller.delete("1")

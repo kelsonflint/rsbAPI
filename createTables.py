@@ -10,22 +10,13 @@ def create_user_table(dynamodb=None):
             {
                 'AttributeName': 'id',
                 'KeyType': 'HASH'
-            },
-            {
-                'AttributeName': 'lastName',
-                'KeyType': 'RANGE'
             }
         ],
         AttributeDefinitions=[
             {
                 'AttributeName': 'id',
                 'AttributeType': 'S'
-            },
-            {
-                'AttributeName': 'lastName',
-                'AttributeType': 'S'
-            },
-            
+            }
         ],
         ProvisionedThroughput={
             'ReadCapacityUnits': 10,
@@ -50,11 +41,19 @@ def create_businesses_table(dynamodb=None):
         TableName='Businesses',
         KeySchema=[
             {
-                'AttributeName': 'id',
+                'AttributeName': 'userId',
                 'KeyType': 'HASH'
+            },
+            {
+                'AttributeName': 'id',
+                'KeyType': 'RANGE'
             }
         ],
         AttributeDefinitions=[
+            {
+                'AttributeName': 'userId',
+                'AttributeType': 'S'
+            },
             {
                 'AttributeName': 'id',
                 'AttributeType': 'S'

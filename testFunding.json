@@ -4,15 +4,15 @@
 		"fundingName": "Economic Injury Disaster Loans (EIDL)",
 		"fundingType": "loan",
 		"provider": "SBA",
-		"url": "https://www.sba.gov/funding-programs/loans/coronavirus-relief-options/covid-19-economic-injury-disaster-loans",
+		"website": "https://www.sba.gov/funding-programs/loans/coronavirus-relief-options/covid-19-economic-injury-disaster-loans",
 		"startDate": "2020-12-27",
 		"endDate": null,
 		"uses": ["Working capital","Normal operating expenses"],
 		"description": "In response to the Coronavirus (COVID-19) pandemic, small business owners, including agricultural businesses, and nonprofit organizations in all U.S. states, Washington D.C., and territories can apply for an Economic Injury Disaster Loan. The EIDL program is designed to provide economic relief to businesses that are currently experiencing a temporary loss of revenue due to COVID-19.",
 		"terms": ["3.75% for businesses (fixed)", "2.75% for nonprofits (fixed)", "30 years", "No pre-payment penalty or fees"],
 		"qualifications": {
-			"NAICS": [11],
-			"maxEmployees": 1,
+			"NAICS": ["11"],
+			"maxEmployees": null,
 			"isCollateralReq": false,
 			"establishedBy": "2019-01-01"
 		}
@@ -22,15 +22,15 @@
 		"fundingName": "Shuttered Venue Operators Grant (SVO)",
 		"fundingType": "grant",
 		"provider": "SBA",
-		"url": "https://www.sba.gov/funding-programs/loans/coronavirus-relief-options/shuttered-venue-operators-grant",
+		"website": "https://www.sba.gov/funding-programs/loans/coronavirus-relief-options/shuttered-venue-operators-grant",
 		"startDate": null,
 		"endDate": null,
 		"uses": ["Payroll costs", "Rent payments", "Utility payments", "Scheduled mortgage payments (not including prepayment of principal)", "Scheduled debt payments (not including prepayment of principal) on any indebtedness incurred in the ordinary course of business prior to 02-15-20)", "Worker protection expenditures", "Payments to independent contractors (not to exceed $100K in annual compensation per contractor)", "Other ordinary and necessary business expenses including maintenance costs", "Administrative costs (incl. fees and licensing)", "State and local taxes and fees", "Operating leases in effect as of 02-15-20", "Insurance payments", "Advertising, production transportation, and capital expenditures related to producing a theatrical or live performing arts production. (May not be primary use of funds.)"],
 		"description": "The Shuttered Venue Operators (SVO) Grant program was established by the Economic Aid to Hard-Hit Small Businesses, Nonprofits, and Venues Act, signed into law on December 27, 2020. The program includes $15 billion in grants to shuttered venues, to be administered by the SBA’s Office of Disaster Assistance. Eligible applicants may qualify for SVO Grants equal to 45% of their gross earned revenue, with the maximum amount available for a single grant award of $10 million. $2 billion is reserved for eligible applications with up to 50 full-time employees.",
 		"terms": ["For an eligible entity in operation on January 1, 2019, grants will be for an amount equal to 45% of their 2019 gross earned revenue OR $10 million, whichever is less.", "For an eligible entity that began operation after January 1, 2019, grants will be for the average monthly gross revenue for each full month you were in operation during 2019 multiplied by six (6) OR $10 million, whichever is less."],
 		"qualifications": {
-			"NAICS": [11],
-			"maxEmployees": 1,
+			"NAICS": ["11"],
+			"maxEmployees": null,
 			"isCollateralReq": false,
 			"establishedBy": "2019-01-01"
 		}
@@ -40,15 +40,15 @@
 		"fundingName": "First Draw Payment Protection Program (PPP)",
 		"fundingType": "loan",
 		"provider": "SBA",
-		"url": "https://www.sba.gov/funding-programs/loans/coronavirus-relief-options/paycheck-protection-program/first-draw-ppp-loans",
+		"website": "https://www.sba.gov/funding-programs/loans/coronavirus-relief-options/paycheck-protection-program/first-draw-ppp-loans",
 		"startDate": "2021-01-11",
 		"endDate": "2021-03-31",
 		"uses": ["Help fund payroll costs, including benefits", "may also be used to pay for mortgage interest, rent, utilities, worker protection costs related to COVID-19", "uninsured property damage costs caused by looting or vandalism during 2020", "certain supplier costs and expenses for operations"],
 		"description": "The Paycheck Protection Program is a loan designed to provide a direct incentive for small businesses to keep their workers on payroll.",
 		"terms": ["SBA will forgive loans if all employee retention criteria are met, and the funds are used for eligible expenses.", "PPP loans have an interest rate of 1%.", "Loans issued after June 5, 2020 have a maturity of five years.", "Loan payments will be deferred for borrowers who apply for loan forgiveness until SBA remits the borrower's loan forgiveness amount to the lender", "If a borrower does not apply for loan forgiveness, payments are deferred 10 months after the end of the covered period for the borrower’s loan forgiveness (either 8 weeks or 24 weeks).", "No collateral or personal guarantees are required.", "Neither the government nor lenders will charge small businesses any fees."],
 		"qualifications": {
-			"NAICS": [11],
-			"maxEmployees": 1,
+			"NAICS": ["11"],
+			"maxEmployees": null,
 			"isCollateralReq": false,
 			"establishedBy": "2019-01-01"
 		}
@@ -58,15 +58,15 @@
 		"fundingName": "Second Draw Payment Protection Program (PPP)",
 		"fundingType": "loan",
 		"provider": "SBA",
-		"url": "https://www.sba.gov/funding-programs/loans/coronavirus-relief-options/paycheck-protection-program/second-draw-ppp-loans",
+		"website": "https://www.sba.gov/funding-programs/loans/coronavirus-relief-options/paycheck-protection-program/second-draw-ppp-loans",
 		"startDate": "2021-01-11",
 		"endDate": "2021-03-31",
 		"uses": ["Help fund payroll costs, including benefits", "may also be used to pay for mortgage interest, rent, utilities, worker protection costs related to COVID-19", "uninsured property damage costs caused by looting or vandalism during 2020", "certain supplier costs and expenses for operations"],
 		"description": "The Paycheck Protection Program is a loan designed to provide a direct incentive for small businesses to keep their workers on payroll.",
 		"terms": ["For most borrowers, the maximum loan amount of a Second Draw PPP Loan is 2.5x average monthly 2019 or 2020 payroll costs up to $2 million.", "For borrowers in the Accommodation and Food Services sector (use NAICS 72 to confirm), the maximum loan amount for a Second Draw PPP Loan is 3.5x average monthly 2019 or 2020 payroll costs up to $2 million."],
 		"qualifications": {
-			"NAICS": [11],
-			"maxEmployees": 1,
+			"NAICS": ["11"],
+			"maxEmployees": null,
 			"isCollateralReq": false,
 			"establishedBy": "2019-01-01"
 		}
@@ -76,15 +76,15 @@
 		"fundingName": "SBA Express Bridge Loans",
 		"fundingType": "loan",
 		"provider": "SBA",
-		"url": "https://www.sba.gov/funding-programs/loans/coronavirus-relief-options/sba-express-bridge-loans",
+		"website": "https://www.sba.gov/funding-programs/loans/coronavirus-relief-options/sba-express-bridge-loans",
 		"startDate": "2020-03-25",
 		"endDate": null,
 		"uses": ["Working capital", "Normal operating expenses"],
 		"description": "Enables small businesses who currently have a business relationship with an SBA Express Lender to access up to $25,000 quickly.",
 		"terms": ["Up to $25,000", "Fast turnaround", "Will be repaid in full or in part by proceeds from the EIDL loan"],
 		"qualifications": {
-			"NAICS": [11],
-			"maxEmployees": 1,
+			"NAICS": ["11"],
+			"maxEmployees": null,
 			"isCollateralReq": false,
 			"establishedBy": "2019-01-01"
 		}

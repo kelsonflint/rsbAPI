@@ -12,23 +12,30 @@ class UserController:
             dynamodb = boto3.resource('dynamodb', region_name='us-west-2', endpoint_url="http://localhost:8000")
         self.table = dynamodb.Table('Users')
 
-    def create(self, id, email, password):
+    def create(self, user):
         #create UUID
         # epoch = time.time()
-        # uniqueID = "%s_%d" % (uuid4, epoch)
-        #hash password
-
+        # uniqueID = "%s_%d" % (uuid4(), epoch)
+        #hash p assword
+        # print(uniqueID)
+        uniqueID = "1"
         try:
             response = self.table.put_item(
                 Item={
-                    'id': id,
-                    'email': email,
-                    'password': password
+                    'id': uniqueID,
+                    'email': user['email'],
+                    'password': user['password'],
+                    'firstName': user['firstName'],
+                    'lastName': user['lastName']
                 }
             )
         except ClientError as e:
             print(e.response['Error']['Message'])
         else:
+            response['userId'] = uniqueID
+            response['email'] = user['email']
+            response['firstName'] = user['firstName']
+            response['lastName'] = user['lastName']
             return response
 
     def get(self, id):
@@ -76,7 +83,13 @@ class UserController:
 
 if __name__ == '__main__':
     controller = UserController()
-    controller.create("3", "me@gmail.com", "password")
+    controller.create({
+                    'id': "3",
+                    'email': "meme@gmail.com",
+                    'password': "pass",
+                    'firstName': "first",
+                    'lastName': "last"
+                })
     user1 = controller.get("3")
     if user1:
         print('get user succeded')
