@@ -1,7 +1,7 @@
 # API Reference
 
 ## Routes
-### IP address:  http://18.236.186.176:8080 (subject to change)
+### IP address:  http://54.214.55.177:8080 (subject to change)
 
 ### USERS
 #### '/users'  [GET, POST]
