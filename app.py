@@ -1,3 +1,4 @@
+import boto3
 from flask import Flask, jsonify, request
 from pprint import pprint
 from businessController import BusinessController
@@ -8,6 +9,12 @@ from decimal import Decimal
 
 app = Flask(__name__)
 
+#dynamodb = boto3.resource('dynamodb', region_name='us-west-2', endpoint_url="http://localhost:8000")
+dynamodb = boto3.resource('dynamodb', region_name='us-west-2')
+user_controller = UserController(dynamodb)
+business_controller = BusinessController(dynamodb)
+funding_controller = FundingController(dynamodb)
+ta_controller = TAController(dynamodb)
 
 @app.route('/')
 def index():
@@ -15,7 +22,6 @@ def index():
 
 @app.route('/users', methods = ['GET', 'POST'])
 def create_user():
-    user_controller = UserController()
     if request.method == 'POST':
         json_request = request.get_json()
         response = user_controller.create(json_request)
@@ -24,7 +30,6 @@ def create_user():
 
 @app.route('/users/<user_id>', methods = ['GET', 'POST', 'PUT', 'DELETE'])
 def user(user_id=None):
-    user_controller = UserController()
     if request.method == 'GET':
         response = user_controller.get(user_id)
         return jsonify(response)
@@ -40,8 +45,6 @@ def user(user_id=None):
 
 @app.route('/users/<user_id>/businesses', methods = ['GET', 'POST'])
 def userBusinesses(user_id=None):
-    business_controller = BusinessController()
-    # user_controller = UserController()
     if request.method == 'GET':
         response = business_controller.get_user_businesses(user_id)
         for r in response:
@@ -57,7 +60,6 @@ def userBusinesses(user_id=None):
 
 @app.route('/users/<user_id>/businesses/<biz_id>', methods = ['GET', 'PUT', 'DELETE'])
 def business(user_id=None, biz_id=None):
-    business_controller = BusinessController()
     if request.method == 'GET':
         response = convert_decimal(business_controller.get(user_id, biz_id))
         return jsonify(response)
@@ -73,7 +75,6 @@ def business(user_id=None, biz_id=None):
 
 @app.route('/funding', methods = ['GET', 'POST'])
 def allFunding():
-    funding_controller = FundingController()
     if request.method == 'GET':
         response = funding_controller.getAll()
         for r in response:
@@ -88,7 +89,6 @@ def allFunding():
 
 @app.route('/funding/<id>', methods = ['GET', 'PUT', 'DELETE'])
 def funding(id=None):
-    funding_controller = FundingController()
     if request.method == 'GET':
         response = funding_controller.get(id)
         pprint(response)
@@ -105,7 +105,6 @@ def funding(id=None):
 
 @app.route('/assistance', methods = ['GET', 'POST'])
 def allAssistance():
-    ta_controller = TAController()
     if request.method == 'GET':
         response = ta_controller.getAll()
         pprint(response)
@@ -118,7 +117,6 @@ def allAssistance():
 
 @app.route('/assistance/<id>', methods = ['GET', 'PUT', 'DELETE'])
 def assistance(id):
-    ta_controller = TAController()
     if request.method == 'GET':
         response = ta_controller.get(id)
         pprint(response)
@@ -152,5 +150,5 @@ def convert_decimal(dictionary):
     return dictionary
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host="0.0.0.0", port=8080)
 

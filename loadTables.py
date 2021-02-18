@@ -47,18 +47,21 @@ def load_TA(taList, dynamodb=None):
         table.put_item(Item=ta)
     
 if __name__ == '__main__':
+
+    dynamodb = boto3.resource('dynamodb', region_name='us-west-2')
+
     with open("testUsers.json") as json_file:
         user_list = json.load(json_file, parse_float=Decimal)
-    load_users(user_list)
+    load_users(user_list, dynamodb)
 
     with open("testBusinesses.json") as json_file:
         business_list = json.load(json_file, parse_float=Decimal)
-    load_businesses(business_list)
+    load_businesses(business_list, dynamodb)
 
     with open("testFunding.json") as json_file:
         funding_list = json.load(json_file, parse_float=Decimal)
-    load_funding(funding_list)
+    load_funding(funding_list, dynamodb)
 
     with open("testTA.json") as json_file:
         ta_list = json.load(json_file, parse_float=Decimal)
-    load_TA(ta_list)
+    load_TA(ta_list, dynamodb)
