@@ -1,7 +1,7 @@
 # API Reference
 
 ## Routes
-### IP address:  http://54.214.55.177:8080 (subject to change)
+### ENDPOINT:  https://8tb0tsfjg2.execute-api.us-west-2.amazonaws.com/rsb (subject to change)
 
 ### USERS
 #### '/users'  [GET, POST]
