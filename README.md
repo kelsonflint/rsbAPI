@@ -5,7 +5,6 @@
 
 ### USERS
 #### '/users'  [GET, POST]
-**GET** list of all user objects
 
 **POST** create new user
 (userId generated upon creation)
