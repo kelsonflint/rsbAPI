@@ -8,6 +8,7 @@
 
 **POST** create new user
 (userId generated upon creation)
+
 BODY: { "email": String, "password": String, "firstName": String, "lastName": String }
 
 RESPONSE: { "ResponseMetadata": Object, "id": String, "token": String, "email": String, "firstName": String, "lastName": String }
@@ -23,6 +24,7 @@ RESPONSE: { "ResponseMetadata": Object, "id": String, "token": String, "email": 
 #### '/login' [POST]
 
 **POST** authenticate login
+
 BODY: { "email": String, "password": String }
 
 RESPONSE: { "email": String, "id": String, "token": String, "firstName": String, "lastName": String }
