@@ -1,11 +1,10 @@
 # API Reference
 
 ## Routes
-### IP address:  http://18.236.186.176:8080 (subject to change)
+### ENDPOINT:  https://8tb0tsfjg2.execute-api.us-west-2.amazonaws.com/rsb (subject to change)
 
 ### USERS
 #### '/users'  [GET, POST]
-**GET** list of all user objects
 
 **POST** create new user
 (userId generated upon creation)
