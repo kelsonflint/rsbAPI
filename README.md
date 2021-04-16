@@ -4,10 +4,21 @@
 ### ENDPOINT:  https://8tb0tsfjg2.execute-api.us-west-2.amazonaws.com/rsb (subject to change)
 
 ### USERS
-#### '/users'  [GET, POST]
+#### '/users'  [POST]
 
 **POST** create new user
 (userId generated upon creation)
+BODY: { "email": String, "password": String, "firstName": String, "lastName": String }
+
+RESPONSE: { "ResponseMetadata": Object, "id": String, "token": String, "email": String, "firstName": String, "lastName": String }
+
+### LOGIN
+#### '/login' [POST]
+
+**POST** authenticate login
+BODY: { "email": String, "password": String }
+
+RESPONSE: { "email": String, "id": String, "token": String, "firstName": String, "lastName": String }
 
 #### '/users/{user_id}' 	[GET, PUT, DELETE]
 **GET** specific user
