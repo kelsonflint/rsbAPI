@@ -3,7 +3,8 @@ from pprint import pprint
 from uuid import uuid4
 import time
 from botocore.exceptions import ClientError
-
+from boto3.dynamodb.conditions import Key
+from werkzeug.security import generate_password_hash, check_password_hash
 
 class UserController:
 
@@ -15,16 +16,17 @@ class UserController:
     def create(self, user):
         #create UUID
         # epoch = time.time()
-        # uniqueID = "%s_%d" % (uuid4(), epoch)
-        #hash p assword
-        # print(uniqueID)
-        uniqueID = "1"
+        uniqueID = "%s" % (uuid4())
+        print("User created with ID:", uniqueID)
+        passwordHash = generate_password_hash(user['password'])
+
+        
         try:
             response = self.table.put_item(
                 Item={
                     'id': uniqueID,
                     'email': user['email'],
-                    'password': user['password'],
+                    'password': passwordHash,
                     'firstName': user['firstName'],
                     'lastName': user['lastName']
                 }
@@ -37,6 +39,7 @@ class UserController:
             response['firstName'] = user['firstName']
             response['lastName'] = user['lastName']
             return response
+
 
     def get(self, id):
         try:
@@ -80,6 +83,32 @@ class UserController:
             print("deleted user w/ id", id)
             return response
     
+
+    def findUser(self, credentials):
+        try:
+            response = self.table.query(
+                IndexName='email',
+                KeyConditionExpression=Key('email').eq(credentials['email']),
+            )
+        except ClientError as e:
+            print(e.response['Error']['Message'])
+        else:
+            return response['Items'][0]
+
+    def verify_password(self, user, credentials):
+        if not user or not check_password_hash(user['password'], credentials['password']):
+            return False
+        else:
+            return True
+
+    def authUser(self, credentials):
+        user = self.findUser(credentials)
+        auth = self.verify_password(user, credentials)
+        if auth:
+            del user["password"]
+            return user
+        else:
+            return {"error": "email or password was incorrect"}
 
 if __name__ == '__main__':
     controller = UserController()

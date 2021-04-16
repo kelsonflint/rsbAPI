@@ -16,12 +16,27 @@ def create_user_table(dynamodb=None):
             {
                 'AttributeName': 'id',
                 'AttributeType': 'S'
+            },
+            {
+                'AttributeName': 'email',
+                'AttributeType': 'S'
             }
         ],
-        ProvisionedThroughput={
-            'ReadCapacityUnits': 10,
-            'WriteCapacityUnits': 10
-        }
+        BillingMode='PAY_PER_REQUEST',
+        GlobalSecondaryIndexes=[
+            {
+                'IndexName':'email',
+                'KeySchema': [
+                    {
+                        'AttributeName': 'email',
+                        'KeyType': 'HASH'
+                    }
+                ],
+                'Projection': {
+                    'ProjectionType': 'ALL'
+                }
+            }
+        ]
     )
     return table 
 
@@ -59,10 +74,7 @@ def create_businesses_table(dynamodb=None):
                 'AttributeType': 'S'
             }        
         ],
-        ProvisionedThroughput={
-            'ReadCapacityUnits': 10,
-            'WriteCapacityUnits': 10
-        }
+        BillingMode='PAY_PER_REQUEST'
     )
     return table 
     
@@ -92,10 +104,7 @@ def create_funding_table(dynamodb=None):
                 'AttributeType': 'S'
             }   
         ],
-        ProvisionedThroughput={
-            'ReadCapacityUnits': 10,
-            'WriteCapacityUnits': 10
-        }
+        BillingMode='PAY_PER_REQUEST'
     )
     return table 
     
@@ -124,10 +133,7 @@ def create_ta_table(dynamodb=None):
                 'AttributeType': 'S'
             },
         ],
-        ProvisionedThroughput={
-            'ReadCapacityUnits': 10,
-            'WriteCapacityUnits': 10
-        }
+        BillingMode='PAY_PER_REQUEST'
     )
     return table 
 
@@ -139,11 +145,11 @@ def delete_ta_table(dynamodb=None):
     table.delete()
 
 if __name__ == '__main__':
-    # delete_user_table()
-    # delete_businesses_table()
-    # delete_funding_table()
-    # delete_ta_table()
     dynamodb = boto3.resource('dynamodb', region_name='us-west-2')
+    # delete_user_table(dynamodb)
+    # delete_businesses_table(dynamodb)
+    # delete_funding_table(dynamodb)
+    # delete_ta_table(dynamodb)
     
     user_table = create_user_table(dynamodb)
     print("User table status: ", user_table.table_status)
