@@ -14,9 +14,10 @@ BODY: { "email": String, "password": String, "firstName": String, "lastName": St
 RESPONSE: { "ResponseMetadata": Object, "id": String, "token": String, "email": String, "firstName": String, "lastName": String }
 
 #### '/users/{user_id}' 	[GET, PUT, DELETE]
-**GET** specific user
+**GET** specific user (We will probably delete this)
 
 **PUT** update user information
+BODY { "token": String, "email": String, "firstName": String, "lastName": String }
 
 **DELETE** remove user from database
 
@@ -34,10 +35,13 @@ RESPONSE: { "email": String, "id": String, "token": String, "firstName": String,
 
 **GET** all business owned by {user_id}
 
+BODY { "token": String }
+
+RESPONSE: Array of Business Objects
 
 **POST** create new business for {user_id}
 
-#### '/users/{user_id}/businesses/{business_id}' [GET, PUT, DELETE]
+#### '/users/{user_id}/businesses/{business_id}' [GET, PUT, DELETE]    (NOT SURE IF THIS IS NEEDED)
 **GET** business w/ {business_id} owned by {user_id}
 
 **PUT** update business w/ {business_id} owned by {user_id}
