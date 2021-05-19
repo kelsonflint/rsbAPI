@@ -166,3 +166,13 @@ RESPONSE: Array of Business Objects
 	"demographics": [String],
 	"locations": [String]
 }
+
+### Announcements
+
+{
+	"id": String,
+	"title": String,
+	"description": String,
+	"endDate": String,
+	"isActive": boolean
+}
