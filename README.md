@@ -1,7 +1,7 @@
 # API Reference
 
 ## Routes
-### ENDPOINT:  https://8tb0tsfjg2.execute-api.us-west-2.amazonaws.com/rsb (subject to change)
+### ENDPOINT:  https://ckbyvv1y8e.execute-api.us-west-2.amazonaws.com/rsb (subject to change)
 
 ### USERS
 #### '/users'  [POST]
@@ -79,6 +79,12 @@ RESPONSE: Array of Business Objects
 **PUT** update TA provider with {ass_id}
 
 **DELETE** TA provider with {ass_id}
+
+### ANNOUNCEMENTS
+
+#### '/announcements' [GET, POST]
+
+#### '/announcements/{a_id} [GET, PUT, DELETE]
 
 
 ## Major Entities
