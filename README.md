@@ -2,9 +2,9 @@
 
 ## Summary
 
-The API has been built using Python's Flask framework. This has allowed for easy scalability and simplified requests. The application has been deployed to Amazon's API Gateway and utilizes AWS Lambda to handle requests. The deployment to AWS is handled by the [Zappa Package](https://pythonforundergradengineers.com/deploy-serverless-web-app-aws-lambda-zappa.html). Through this implementation, we can meet our variable demand without having to rely on servers. 
+The API has been built using Python's Flask framework. This has allowed for easy scalability and simplified requests. The application has been deployed to Amazon's API Gateway and utilizes AWS Lambda to handle requests. The deployment to AWS is handled by the [Zappa Package](https://pythonforundergradengineers.com/deploy-serverless-web-app-aws-lambda-zappa.html). Through this implementation, we can meet our variable demand without having to rely on servers. This allows for little to no-cost management of our application.
 
-The API manages Funding Finder's user accounts/businesses, funding, assistance organizations, and announcements.
+The API manages Funding Finder's user accounts/businesses, funding opportunities, assistance organizations, and announcements.
 
 ## Routes
 ### ENDPOINT:  https://ckbyvv1y8e.execute-api.us-west-2.amazonaws.com/rsb (subject to change)
